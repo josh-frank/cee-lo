@@ -10,20 +10,17 @@ body::before {
   z-index: -9999;
 }
 
-/* .die {
+.game-info {
   position: absolute;
-} */
+  top: 75%;
+  left: 45%;
+  color: white;
+  font-size: 36pt;
+  font-weight: bold;
+}
 
-/* @media ( prefers-reduced-motion: no-preference ) {
-  .die {
-    animation: roll-die 0.5s linear;
-  }
-} */
-
-/* @keyframes roll-die {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-  0% { top: 110%; }
-  75% { top: 0%; }
-  100% { top: 10%; }
-} */
+.game-controls {
+  position: absolute;
+  top: 85%;
+  left: 40%;
+}

@@ -6,8 +6,6 @@ export default function Die( { number, randomX, randomY } ) {
     // const randomY = Math.floor( ( Math.random() * 80 ) + 5 );
     
     const dieAnimation = keyframes`
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
         0% {
             top: 110%;
             left: 50%;
@@ -15,7 +13,9 @@ export default function Die( { number, randomX, randomY } ) {
         50% {
             top: 0%;
             left: ${ randomY / 2 }%;
+            transform: rotate( 360deg );
         }
+        100% { transform: rotate( 0deg ); }
     `;
     
     const DieSvg = styled.svg`
