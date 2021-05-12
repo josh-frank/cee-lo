@@ -10,21 +10,20 @@ body::before {
   z-index: -9999;
 }
 
-.die {
+/* .die {
   position: absolute;
-  top: 10%;
-}
+} */
 
-@media ( prefers-reduced-motion: no-preference ) {
+/* @media ( prefers-reduced-motion: no-preference ) {
   .die {
     animation: roll-die 0.5s linear;
   }
-}
+} */
 
-@keyframes roll-die {
+/* @keyframes roll-die {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
   0% { top: 110%; }
   75% { top: 0%; }
   100% { top: 10%; }
-}
+} */

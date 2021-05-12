@@ -1,4 +1,29 @@
-export default function Die( { number } ) {
+import styled, { keyframes } from "styled-components";
+
+export default function Die( { number, randomX, randomY } ) {
+
+    // const randomX = Math.floor( ( Math.random() * 25 ) + 25 );
+    // const randomY = Math.floor( ( Math.random() * 80 ) + 5 );
+    
+    const dieAnimation = keyframes`
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+        0% {
+            top: 110%;
+            left: 50%;
+        }
+        50% {
+            top: 0%;
+            left: ${ randomY / 2 }%;
+        }
+    `;
+    
+    const DieSvg = styled.svg`
+        position: absolute;
+        top: ${ randomX }%;
+        left: ${ randomY }%;
+        animation: ${ dieAnimation } 0.5s linear;
+    `;
 
     const one = <g>
         <circle cx="50" cy="50" r="15" fill="red" />
@@ -41,7 +66,7 @@ export default function Die( { number } ) {
 
     const dieFaces = [ null, one, two, three, four, five, six ];
 
-    return <svg
+    return <DieSvg
         x="0px"
         y="0px"
         width="100px"
@@ -51,6 +76,6 @@ export default function Die( { number } ) {
     >
         <rect rx="20" ry="20" width="100" height="100" style={ { fill: "#FFFDF5" } } />
         { dieFaces[ number ] }
-    </svg>;
+    </DieSvg>;
 
 }
