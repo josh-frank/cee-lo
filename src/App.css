@@ -1,38 +1,30 @@
-.App {
-  text-align: center;
+body::before {
+  content: "";
+  background-image: url( ./assets/asphalt.jpg );
+  background-size: cover;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: -9999;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.die {
+  position: absolute;
+  top: 10%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media ( prefers-reduced-motion: no-preference ) {
+  .die {
+    animation: roll-die 0.5s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes roll-die {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+  0% { top: 110%; }
+  75% { top: 0%; }
+  100% { top: 10%; }
 }
