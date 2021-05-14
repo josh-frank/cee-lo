@@ -16,7 +16,7 @@ export default function Dice( { roll } ) {
 
     const randomY = [ Math.floor( ( Math.random() * 25 ) + 5 ) ];
     randomY.push( Math.floor( ( Math.random() * 25 ) + randomY[ 0 ] + 10 ) )
-    randomY.push( Math.floor( ( Math.random() * 25 ) + randomY[ 1 ] + 10 ) )
+    randomY.push( Math.floor( ( Math.random() * 25 ) + randomY[ 1 ] ) )
     shuffle( randomY );
     
     return <div>

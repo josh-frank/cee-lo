@@ -1,29 +1,26 @@
 import styled, { keyframes } from "styled-components";
 
-export default function Die( { number, randomX, randomY } ) {
+const dieAnimation = randomY => keyframes`
+    0% {
+        top: 110%;
+        left: 50%;
+    }
+    50% {
+        top: 0%;
+        left: ${ randomY / 2 }%;
+        transform: rotate( 360deg );
+    }
+    100% { transform: rotate( 0deg ); }
+`;
 
-    // const randomX = Math.floor( ( Math.random() * 25 ) + 25 );
-    // const randomY = Math.floor( ( Math.random() * 80 ) + 5 );
-    
-    const dieAnimation = keyframes`
-        0% {
-            top: 110%;
-            left: 50%;
-        }
-        50% {
-            top: 0%;
-            left: ${ randomY / 2 }%;
-            transform: rotate( 360deg );
-        }
-        100% { transform: rotate( 0deg ); }
-    `;
-    
-    const DieSvg = styled.svg`
-        position: absolute;
-        top: ${ randomX }%;
-        left: ${ randomY }%;
-        animation: ${ dieAnimation } 0.5s linear;
-    `;
+const DieSvg = styled.svg`
+    position: absolute;
+    top: ${ props => props.randomX }%;
+    left: ${ props => props.randomY }%;
+    animation: ${ dieAnimation( props => props.randomY ) } 0.5s linear;
+`;
+
+export default function Die( { number, randomX, randomY } ) {
 
     const one = <g>
         <circle cx="50" cy="50" r="15" fill="red" />
@@ -73,6 +70,8 @@ export default function Die( { number, randomX, randomY } ) {
         height="100px"
         viewBox="0 0 100 100"
         className="die"
+        randomX={ randomX }
+        randomY={ randomY }
     >
         <rect rx="20" ry="20" width="100" height="100" style={ { fill: "#FFFDF5" } } />
         { dieFaces[ number ] }
